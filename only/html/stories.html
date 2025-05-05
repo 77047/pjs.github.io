@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>成长实验室 | 疗法实验站</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/sty.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar animate__animated animate__fadeInDown">
+    <div class="nav-content">
+      <a href="index.html" class="nav-item">🏠 首页</a>
+      <a href="comfort.html" class="nav-item">💌 暖心话语</a>
+      <a href="stories.html" class="nav-item active">🔬 成长实验室</a>
+      <a href="resources.html" class="nav-item">🔗 实用资源</a>
+    </div>
+  </nav>
+
+  <!-- 实验室内容 -->
+  <section class="container animate__animated animate__fadeIn">
+    <div class="lab-container">
+      <!-- 实验室装饰元素 -->
+      <div class="lab-equipment flask">🧪</div>
+      <div class="lab-equipment microscope">🔬</div>
+      
+      <div class="lab-header">
+        <h1 class="lab-title">心灵疗法实验站</h1>
+        <h2 class="lab-subtitle">探索不同的自我疗愈方法</h2>
+      </div>
+      
+      <!-- 疗法分类导航 -->
+      <div class="therapy-categories">
+        <button class="category-btn active" data-category="all">全部疗法</button>
+        <button class="category-btn" data-category="travel">旅行疗法</button>
+        <button class="category-btn" data-category="art">艺术疗法</button>
+        <button class="category-btn" data-category="nature">自然疗法</button>
+        <button class="category-btn" data-category="narrative">叙事疗法</button>
+      </div>
+      
+      <!-- 实验站 -->
+      <div class="experiment-station">
+        <!-- 阶段性旅行疗法 -->
+        <div class="experiment-card" data-category="travel">
+          <div class="experiment-icon">✈️</div>
+          <h3 class="experiment-title">阶段性心灵旅程</h3>
+          <p class="experiment-desc">
+            通过三阶段旅行设计实现自我发现与疗愈，包含城市探索、自然沉浸和文化对话。
+          </p>
+          <button class="start-experiment" data-experiment="travel">查看旅程</button>
+        </div>
+        
+        <!-- 艺术疗法 -->
+        <div class="experiment-card" data-category="art">
+          <div class="experiment-icon">🎨</div>
+          <h3 class="experiment-title">潜意识绘画实验</h3>
+          <p class="experiment-desc">
+            通过非指导性艺术创作解锁潜意识，7天连续创作发现内在情绪模式。
+          </p>
+          <button class="start-experiment" data-experiment="art">开始创作</button>
+        </div>
+        
+        <!-- 森林浴疗法 -->
+        <div class="experiment-card" data-category="nature">
+          <div class="experiment-icon">🌲</div>
+          <h3 class="experiment-title">数字森林浴指南</h3>
+          <p class="experiment-desc">
+            即使不在森林中，也能通过感官引导获得自然疗愈效果。
+          </p>
+          <button class="start-experiment" data-experiment="forest">开始体验</button>
+        </div>
+        
+        <!-- 叙事疗法 -->
+        <div class="experiment-card" data-category="narrative">
+          <div class="experiment-icon">📖</div>
+          <h3 class="experiment-title">人生重写工作坊</h3>
+          <p class="experiment-desc">
+            通过重新讲述你的故事，发现被忽略的支线剧情和隐藏力量。
+          </p>
+          <button class="start-experiment" data-experiment="narrative">开始重写</button>
+        </div>
+        
+        <!-- 数字排毒 -->
+        <div class="experiment-card" data-category="nature">
+          <div class="experiment-icon">📵</div>
+          <h3 class="experiment-title">阶段性数字排毒</h3>
+          <p class="experiment-desc">
+            渐进式减少屏幕时间，分三个阶段重建健康数字习惯。
+          </p>
+          <button class="start-experiment" data-experiment="detox">查看阶段</button>
+        </div>
+        
+        <!-- 跨文化沉浸 -->
+        <div class="experiment-card" data-category="travel">
+          <div class="experiment-icon">🌍</div>
+          <h3 class="experiment-title">文化认知重塑</h3>
+          <p class="experiment-desc">
+            通过三周有步骤的文化沉浸，拓展认知边界。
+          </p>
+          <button class="start-experiment" data-experiment="culture">开始沉浸</button>
+        </div>
+      </div>
+      
+      <!-- 召唤行动 -->
+      <div class="lab-cta">
+        <h3>你的疗愈经验也很重要</h3>
+        <p>分享你的自我疗愈方法，帮助更多人找到适合自己的方式</p>
+        <a href="./share-therapy.html" class="contribute-btn">
+          <i class="fas fa-plus-circle"></i> 小树洞
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 实验详情模态框 -->
+  <div id="experiment-modal" class="experiment-modal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <span class="modal-tag" id="modal-tag">旅行疗法</span>
+      <h2 class="modal-title" id="modal-title">阶段性心灵旅程</h2>
+      <div class="modal-body" id="modal-body">
+        <!-- 动态加载的实验内容 -->
+      </div>
+      <div class="modal-footer">
+        <button class="save-experiment">
+          <i class="fas fa-bookmark"></i> 保存疗法
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script>
+    // 实验数据
+    const experiments = {
+      "travel": {
+        title: "阶段性心灵旅程",
+        category: "travel",
+        tag: "旅行疗法",
+        content: `
+          <h3>疗法介绍</h3>
+          <p>通过精心设计的三个阶段旅行，帮助参与者实现自我发现与心灵疗愈。每个阶段都有特定的主题和目标。</p>
+          
+          <div class="experiment-steps">
+            <h3>三个阶段</h3>
+            
+            <h4 class="step-title">阶段一：城市探索 (1周)</h4>
+            <p class="step-desc">• 在陌生城市中独自探索<br>
+               • 完成每日小任务挑战舒适区<br>
+               • 记录城市中的灵感瞬间</p>
+            
+            <h4 class="step-title">阶段二：自然沉浸 (2周)</h4>
+            <p class="step-desc">• 远离城市喧嚣，深入自然<br>
+               • 每日冥想与自然观察练习<br>
+               • 无数字设备干扰的深度连接</p>
+            
+            <h4 class="step-title">阶段三：文化对话 (1周)</h4>
+            <p class="step-desc">• 与当地居民深度交流<br>
+               • 参与传统仪式或工作坊<br>
+               • 反思文化差异带来的启示</p>
+          </div>
+          
+          <div class="experiment-quote">
+            "旅行不是为了到达目的地，而是为了重新发现自己。"
+          </div>
+          
+          <h3>预期效果</h3>
+          <p>通过三个阶段的不同体验，参与者通常能够：<br>
+             1. 突破自我限制性信念<br>
+             2. 建立更深层的自我连接<br>
+             3. 获得新的生活视角</p>
+        `
+      },
+      "art": {
+        title: "潜意识绘画实验",
+        category: "art",
+        tag: "艺术疗法",
+        content: `
+          <h3>疗法介绍</h3>
+          <p>通过7天连续的非指导性艺术创作，解锁潜意识中的情绪模式，发现内在未被表达的部分。</p>
+          
+          <div class="experiment-steps">
+            <h3>每日练习</h3>
+            
+            <h4 class="step-title">第1-2天：自由表达</h4>
+            <p class="step-desc">• 使用非惯用手绘画<br>
+               • 闭上眼睛随意涂鸦<br>
+               • 关注创作过程中的身体感受</p>
+            
+            <h4 class="step-title">第3-5天：主题探索</h4>
+            <p class="step-desc">• 绘制"我的情绪地图"<br>
+               • 创作"内在小孩"肖像<br>
+               • 用色彩表达当前生活状态</p>
+            
+            <h4 class="step-title">第6-7天：整合创作</h4>
+            <p class="step-desc">• 将前几天的作品元素整合<br>
+               • 创作一幅代表自我发现的画作<br>
+               • 为作品命名并写下感受</p>
+          </div>
+          
+          <div class="experiment-quote">
+            "艺术不是关于完美，而是关于真实。每一笔都是心灵的诉说。"
+          </div>
+          
+          <h3>预期效果</h3>
+          <p>通过7天练习，参与者通常能够：<br>
+             1. 识别并释放压抑的情绪<br>
+             2. 发现潜意识的思维模式<br>
+             3. 增强自我接纳与表达</p>
+        `
+      },
+      "forest": {
+        title: "数字森林浴指南",
+        category: "nature",
+        tag: "自然疗法",
+        content: `
+          <h3>疗法介绍</h3>
+          <p>即使身处城市，也能通过感官引导体验森林浴的效果，获得自然的疗愈力量。</p>
+          
+          <div class="experiment-steps">
+            <h3>练习方法</h3>
+            
+            <h4 class="step-title">视觉引导</h4>
+            <p class="step-desc">• 观察植物细节15分钟<br>
+               • 观看自然纪录片(无解说版)<br>
+               • 使用自然主题动态壁纸</p>
+            
+            <h4 class="step-title">听觉引导</h4>
+            <p class="step-desc">• 聆听自然声音录音<br>
+               • 识别周围环境中的自然声音<br>
+               • 每天静听雨声10分钟</p>
+            
+            <h4 class="step-title">触觉引导</h4>
+            <p class="step-desc">• 赤脚在草地行走<br>
+               • 触摸不同纹理的植物<br>
+               • 使用天然材质物品</p>
+          </div>
+          
+          <div class="experiment-quote">
+            "自然不在远方，而在我们感知世界的方式中。"
+          </div>
+          
+          <h3>预期效果</h3>
+          <p>通过持续练习，参与者通常能够：<br>
+             1. 降低压力激素水平<br>
+             2. 提升专注力和创造力<br>
+             3. 改善睡眠质量</p>
+        `
+      },
+      "narrative": {
+        title: "人生重写工作坊",
+        category: "narrative",
+        tag: "叙事疗法",
+        content: `
+          <h3>疗法介绍</h3>
+          <p>通过重新讲述你的生活故事，发现被忽略的支线剧情和内在资源，重构更积极的自我认同。</p>
+          
+          <div class="experiment-steps">
+            <h3>练习步骤</h3>
+            
+            <h4 class="step-title">步骤一：故事收集</h4>
+            <p class="step-desc">• 写下关键人生事件<br>
+               • 记录不同版本的记忆<br>
+               • 收集他人眼中的你</p>
+            
+            <h4 class="step-title">步骤二：支线发现</h4>
+            <p class="step-desc">• 识别被忽略的成功时刻<br>
+               • 寻找困境中的成长点<br>
+               • 发现"配角"的重要影响</p>
+            
+            <h4 class="step-title">步骤三：故事重构</h4>
+            <p class="step-desc">• 用不同角度重述故事<br>
+               • 创作"如果当时..."版本<br>
+               • 写下未来章节大纲</p>
+          </div>
+          
+          <div class="experiment-quote">
+            "我们不是过去经历的囚徒，而是自己故事的作者。"
+          </div>
+          
+          <h3>预期效果</h3>
+          <p>通过工作坊，参与者通常能够：<br>
+             1. 建立更完整的自我认知<br>
+             2. 发现内在未被认可的力量<br>
+             3. 获得对未来的新展望</p>
+        `
+      },
+      "detox": {
+        title: "阶段性数字排毒",
+        category: "nature",
+        tag: "自然疗法",
+        content: `
+          <h3>疗法介绍</h3>
+          <p>通过三个阶段渐进式减少数字设备使用，重建健康的数字习惯，恢复真实连接能力。</p>
+          
+          <div class="experiment-steps">
+            <h3>三个阶段</h3>
+            
+            <h4 class="step-title">阶段一：意识觉醒 (1周)</h4>
+            <p class="step-desc">• 记录屏幕使用时间<br>
+               • 识别无意识使用模式<br>
+               • 建立设备使用界限</p>
+            
+            <h4 class="step-title">阶段二：行为调整 (2周)</h4>
+            <p class="step-desc">• 设置无设备时段<br>
+               • 删除非必要应用<br>
+               • 建立替代活动清单</p>
+            
+            <h4 class="step-title">阶段三：习惯巩固 (持续)</h4>
+            <p class="step-desc">• 每周一天数字斋戒<br>
+               • 创建专注工作空间<br>
+               • 定期评估数字福祉</p>
+          </div>
+          
+          <div class="experiment-quote">
+            "断开连接不是为了逃避世界，而是为了更真实地存在于其中。"
+          </div>
+          
+          <h3>预期效果</h3>
+          <p>通过三个阶段，参与者通常能够：<br>
+             1. 减少数字焦虑<br>
+             2. 提升专注力和生产力<br>
+             3. 改善现实人际关系</p>
+        `
+      },
+      "culture": {
+        title: "文化认知重塑",
+        category: "travel",
+        tag: "旅行疗法",
+        content: `
+          <h3>疗法介绍</h3>
+          <p>通过三周有步骤的文化沉浸体验，拓展认知边界，打破文化偏见，获得更包容的世界观。</p>
+          
+          <div class="experiment-steps">
+            <h3>三周计划</h3>
+            
+            <h4 class="step-title">第一周：文化学习</h4>
+            <p class="step-desc">• 研究目标文化历史<br>
+               • 学习基础语言表达<br>
+               • 观看本土影视作品</p>
+            
+            <h4 class="step-title">第二周：文化体验</h4>
+            <p class="step-desc">• 品尝地道美食<br>
+               • 参加文化活动<br>
+               • 与社区成员交流</p>
+            
+            <h4 class="step-title">第三周：文化反思</h4>
+            <p class="step-desc">• 记录文化冲击时刻<br>
+               • 识别自身文化滤镜<br>
+               • 创建跨文化指南</p>
+          </div>
+          
+          <div class="experiment-quote">
+            "真正的旅行不是用里程计算的，而是用被改变的观念来衡量的。"
+          </div>
+          
+          <h3>预期效果</h3>
+          <p>通过三周沉浸，参与者通常能够：<br>
+             1. 拓展文化认知边界<br>
+             2. 减少文化偏见<br>
+             3. 增强跨文化适应力</p>
+        `
+      }
+    };
+
+    // 初始化实验室页面功能
+    function initLabPage() {
+      // 分类筛选功能
+      initCategoryFilter();
+      
+      // 实验卡片点击事件
+      initExperimentCards();
+      
+      // 模态框关闭功能
+      initModalClose();
+      
+      // 保存疗法功能
+      initSaveExperiment();
+    }
+    
+    // 初始化分类筛选功能
+    function initCategoryFilter() {
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const experimentCards = document.querySelectorAll('.experiment-card');
+      
+      // 检查元素是否存在
+      if (categoryButtons.length === 0) {
+        console.warn('未找到分类按钮');
+        return;
+      }
+      
+      if (experimentCards.length === 0) {
+        console.warn('未找到实验卡片');
+        return;
+      }
+    
+      // 为每个分类按钮添加点击事件
+      categoryButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const category = this.dataset.category;
+          
+          // 更新按钮激活状态
+          categoryButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          // 筛选并显示/隐藏卡片
+          filterExperimentCards(category);
+        });
+      });
+    
+      // 默认激活"全部疗法"按钮
+      const defaultBtn = document.querySelector('.category-btn[data-category="all"]');
+      if (defaultBtn) defaultBtn.click();
+    }
+    
+    // 筛选实验卡片
+    function filterExperimentCards(category) {
+      const cards = document.querySelectorAll('.experiment-card');
+      
+      cards.forEach(card => {
+        const cardCategory = card.dataset.category;
+        
+        // 判断是否应该显示该卡片
+        if (category === 'all' || cardCategory === category) {
+          showCard(card);
+        } else {
+          hideCard(card);
+        }
+      });
+    }
+    
+    // 显示卡片动画
+    function showCard(card) {
+      card.style.display = 'block';
+      // 使用setTimeout确保display改变后再进行动画
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 10);
+    }
+    
+    // 隐藏卡片动画
+    function hideCard(card) {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      // 动画完成后隐藏
+      setTimeout(() => {
+        card.style.display = 'none';
+      }, 300);
+    }
+    
+    // 初始化实验卡片点击事件
+    function initExperimentCards() {
+      document.querySelectorAll('.start-experiment').forEach(button => {
+        button.addEventListener('click', function() {
+          const experimentId = this.dataset.experiment;
+          openExperimentModal(experimentId);
+        });
+      });
+    }
+    
+    // 打开实验详情模态框
+    function openExperimentModal(experimentId) {
+      const experiment = experiments[experimentId];
+      
+      if (!experiment) {
+        console.error('未找到实验数据:', experimentId);
+        return;
+      }
+      
+      // 设置模态框内容
+      document.getElementById('modal-tag').textContent = experiment.tag;
+      document.getElementById('modal-title').textContent = experiment.title;
+      document.getElementById('modal-body').innerHTML = experiment.content;
+      
+      // 显示模态框
+      document.getElementById('experiment-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      // 重置保存按钮状态
+      const saveBtn = document.querySelector('.save-experiment');
+      saveBtn.innerHTML = '<i class="fas fa-bookmark"></i> 保存疗法';
+      saveBtn.disabled = false;
+    }
+    
+    // 初始化模态框关闭功能
+    function initModalClose() {
+      // 关闭按钮
+      document.querySelector('.close-modal').addEventListener('click', closeModal);
+      
+      // 点击模态框背景关闭
+      document.getElementById('experiment-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+      });
+      
+      // ESC键关闭
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+    }
+    
+    // 关闭模态框
+    function closeModal() {
+      document.getElementById('experiment-modal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    // 初始化保存疗法功能
+    function initSaveExperiment() {
+      document.querySelector('.save-experiment').addEventListener('click', function() {
+        const title = document.getElementById('modal-title').textContent;
+        alert(`"${title}" 已保存到我的疗法库`);
+        this.innerHTML = '<i class="fas fa-check"></i> 已保存';
+        this.disabled = true;
+      });
+    }
+    
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLabPage);
+    } else {
+      // 如果文档已经加载完成，直接初始化
+      initLabPage();
+    }
+  </script>
+</body>
+</html>

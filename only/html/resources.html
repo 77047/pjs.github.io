@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实用资源大全 ❤️</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="../css/sty.css">
+</head>
+<body>
+  <!-- 飘落的爱心背景 -->
+  <div id="hearts-container"></div>
+  
+  <!-- 导航栏 -->
+  <nav class="navbar animate__animated animate__fadeInDown">
+    <div class="nav-content">
+      <a href="index.html" class="nav-item">🏠 首页</a>
+      <a href="comfort.html" class="nav-item">💌 暖心话语</a>
+	 <a href="stories.html" class="nav-item">🔬 成长实验室</a>
+      <a href="resources.html" class="nav-item active">🔗 实用资源</a>
+    </div>
+  </nav>
+
+  <!-- 主要内容 -->
+  <section class="container resources-page animate__animated animate__fadeIn">
+    <div class="content">
+      <h1 class="title">实用资源大全</h1>
+      <h2 class="subtitle">为你整理的各种发展路径</h2>
+      
+      <div class="resource-tabs">
+        <div class="tab-buttons">
+          <button class="tab-button active" onclick="openTab('education')">🎓 学历提升</button>
+          <button class="tab-button" onclick="openTab('west-plan')">🌄 西部计划</button>
+          <button class="tab-button" onclick="openTab('career')">💼 职业发展</button>
+          <button class="tab-button" onclick="openTab('skills')">🛠️ 技能学习</button>
+        </div>
+        
+        <!-- 学历提升 -->
+        <div id="education" class="tab-content active">
+          <div class="resource-card animate__animated animate__fadeIn">
+            <h3><span class="icon">📚</span> 自考本科</h3>
+            <p>适合在职人员，含金量较高</p>
+            <div class="resource-links">
+              <a href="https://www.chsi.com.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 中国教育考试网
+                <span class="link-desc">(自考报名官网)</span>
+              </a>
+              <a href="https://www.zikaoben.cn/baoming/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 各省自考办
+                <span class="link-desc">(查询当地政策)</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="resource-card animate__animated animate__fadeIn animate__delay-1s">
+            <h3><span class="icon">🎫</span> 成人高考</h3>
+            <p>考试相对简单，适合基础薄弱者</p>
+            <div class="resource-links">
+              <a href="https://www.neea.edu.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 成人高考网
+              </a>
+            </div>
+          </div>
+          
+          <div class="resource-card animate__animated animate__fadeIn animate__delay-2s">
+            <h3><span class="icon">✏️</span> 专科考研</h3>
+            <p>专科毕业2年后可直接报考</p>
+            <div class="resource-links">
+              <a href="https://yz.chsi.com.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 研招网
+                <span class="link-desc">(官方报名)</span>
+              </a>
+              <a href="https://kaoyan.eol.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 考研网
+                <span class="link-desc">(备考资料)</span>
+              </a>
+            </div>
+            <div class="special-note">
+              💡 部分院校对专科生有额外要求（如发表论文、加试科目等）
+            </div>
+          </div>
+        </div>
+        
+        <!-- 西部计划 -->
+        <div id="west-plan" class="tab-content">
+          <div class="resource-card animate__animated animate__fadeIn">
+            <h3><span class="icon">🏔️</span> 大学生西部计划</h3>
+            <p>服务期满可享考研加分、公务员定向招录等政策</p>
+            <div class="resource-links">
+              <a href="http://xibu.youth.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 西部计划官网
+              </a>
+              <a href="https://www.mohrss.gov.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 人社部西部计划专栏
+              </a>
+            </div>
+            <div class="benefits">
+              <h4>优惠政策：</h4>
+              <ul>
+                <li>服务期满考研初试+10分</li>
+                <li>公务员/事业单位定向招录</li>
+                <li>学费代偿（每年≤8000元）</li>
+                <li>计算工龄，享受应届生政策</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="resource-card animate__animated animate__fadeIn animate__delay-1s">
+            <h3><span class="icon">🌾</span> 三支一扶计划</h3>
+            <p>支教、支农、支医和扶贫工作</p>
+            <div class="resource-links">
+              <a href="https://rsggfw.rst.xinjiang.gov.cn/osp-tb/template/pc/index.html " target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 三支一扶官网
+              </a>
+            </div>
+            <div class="special-note">
+              💡 服务期满可转事业编，考研初试+10分
+            </div>
+          </div>
+        </div>
+        
+        <!-- 职业发展 -->
+        <div id="career" class="tab-content">
+          <div class="resource-card animate__animated animate__fadeIn">
+            <h3><span class="icon">📝</span> 公务员考试</h3>
+            <div class="resource-links">
+              <a href="https://www.scs.gov.cn/index.html" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 国家公务员局
+              </a>
+            </div>
+          </div>
+          
+          <div class="resource-card animate__animated animate__fadeIn animate__delay-1s">
+            <h3><span class="icon">🏢</span> 国企招聘</h3>
+            <div class="resource-links">
+              <a href="http://www.sasac.gov.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 国资委官网
+              </a>
+              <a href="https://www.iguopin.com/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 国聘网
+              </a>
+            </div>
+          </div>
+          
+          <div class="resource-card animate__animated animate__fadeIn animate__delay-2s">
+            <h3><span class="icon">✈️</span> 军队文职</h3>
+            <div class="resource-links">
+              <a href="http://www.81rc.mil.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 军队人才网
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 技能学习 -->
+        <div id="skills" class="tab-content">
+          <div class="resource-card animate__animated animate__fadeIn">
+            <h3><span class="icon">💻</span> 免费学习平台</h3>
+            <div class="resource-links">
+              <a href="https://www.icourse163.org/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 中国大学MOOC
+              </a>
+              <a href="https://www.bilibili.com/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> B站学习区
+              </a>
+            </div>
+          </div>
+          
+          <div class="resource-card animate__animated animate__fadeIn animate__delay-1s">
+            <h3><span class="icon">📱</span> 职业技能认证</h3>
+            <div class="resource-links">
+              <a href="http://www.mohrss.gov.cn/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 人社部职业资格
+              </a>
+              <a href="https://www.aliyun.com/edu/" target="_blank" class="resource-link">
+                <span class="link-icon">🔗</span> 阿里云认证
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+   <!-- 背景音乐 -->
+   <!-- 图片和歌词 -->
+   <div class="music-section">
+     <div class="rotating-image" id="rotatingImage">
+       <!-- 确保替换src为你的图片路径 -->
+       <img src="../image/tp.jpg" alt="Rotating Image">
+     </div>
+     
+     <div class="lyrics" id="lyrics">
+       <!-- 歌词将通过JavaScript动态插入 -->
+     </div>
+   </div>
+   
+   <!-- 背景音乐 -->
+   <audio controls autoplay loop id="backgroundMusic">
+     <source src="../music/稻香.mp3" type="audio/mpeg">
+     您的浏览器不支持 audio 元素。
+   </audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祝福语录+视频展示</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+            font-family: "Microsoft YaHei", sans-serif;
+            height: 100vh;
+            perspective: 1000px;
+        }
+        
+        /* 初始祝福语样式 */
+        .initial-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 36px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s;
+            z-index: 200;
+            text-shadow: 0 0 15px #ff3366;
+        }
+        
+        .message {
+            position: absolute;
+            color: white;
+            font-size: 18px;
+            padding: 8px 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            opacity: 0;
+            white-space: nowrap;
+            text-shadow: 0 0 10px currentColor;
+            transition: opacity 0.5s, transform 4s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+            z-index: 100;
+            pointer-events: none;
+            box-shadow: 0 0 20px currentColor;
+            transform-style: preserve-3d;
+            will-change: transform, opacity;
+        }
+        
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.8;
+            filter: blur(1px);
+            transform: translateZ(0);
+        }
+        
+        .center-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            border-radius: 50%;
+            animation: pulse 4s infinite alternate;
+        }
+        
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 1000;
+            background-color: black;
+        }
+        
+        #video-loop {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+        }
+        
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.3; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 初始祝福语 -->
+    <div class="initial-message" id="initialMessage">那就祝你在今后</div>
+    
+    <div class="center-glow"></div>
+    <div id="video-container">
+        <video id="video-loop" autoplay loop muted>
+            <source src="../music/5月5日.mp4" type="video/mp4">
+            您的浏览器不支持视频标签
+        </video>
+    </div>
+    
+    <script>
+        // 显示初始祝福语
+        const initialMessage = document.getElementById('initialMessage');
+        setTimeout(() => {
+            initialMessage.style.opacity = '1';
+            
+            // 3秒后淡出初始祝福语并开始显示50条祝福
+            setTimeout(() => {
+                initialMessage.style.opacity = '0';
+                setTimeout(() => {
+                    initialMessage.style.display = 'none';
+                    startMessages();
+                }, 2000);
+            }, 3000);
+        }, 500);
+        
+        // 50条不重复的祝福文案
+        const messages = [
+            "✨ 愿你三冬暖，愿你春不寒 ✨",
+            "🌟 愿你天黑有灯，下雨有伞 🌟",
+            "💖 愿你路上有良人相伴 💖",
+            "🌈 愿你所有快乐无需假装 🌈",
+            "🌠 愿你此生尽兴，赤诚善良 🌠",
+            "🌻 愿时光能缓，愿故人不散 🌻",
+            "🌞 愿有人陪你颠沛流离 🌞",
+            "🌸 愿你独闯的日子里不觉得孤单 🌸",
+            "⚡ 愿你眼中总有光芒，活成你想要的模样 ⚡",
+            "🎯 愿你有树可倚有酒可醉 🎯",
+            "🌹 愿你走出半生，归来仍是少年 🌹",
+            "💫 愿你一生努力，一生被爱 💫",
+            "🌅 愿你想要的都拥有，得不到的都释怀 🌅",
+            "🚀 愿你前程似锦，未来可期 🚀",
+            "🎁 愿你被世界温柔以待 🎁",
+            "❤️ 愿你一生平安喜乐 ❤️",
+            "🌺 愿你无忧无疾百岁安生不离笑 🌺",
+            "🎈 愿你一生清澈明朗，做你愿做的事 🎈",
+            "🌙 愿你梦的远方，温暖可向 🌙",
+            "☀️ 愿你阳光下像个孩子，风雨里像个大人 ☀️",
+            "🍀 愿你一生幸运，万事胜意 🍀",
+            "🌊 愿你以梦为马，不负韶华 🌊",
+            "🎵 愿你一生有山可靠，有树可栖 🎵",
+            "🏆 愿你所有的努力都不被辜负 🏆",
+            "🌄 愿你历尽千帆，归来仍是少年 🌄",
+            "🕊️ 愿你一生被爱，一生可爱 🕊️",
+            "🌿 愿你余生不悔，旧路不归 🌿",
+            "🎨 愿你眼中写满故事，脸上却不见风霜 🎨",
+            "🍂 愿你所有快乐无需假装 🍂",
+            "🌎 愿你遍历山河，觉得人间值得 🌎",
+            "🏵️ 愿你一生温暖纯良，不舍爱与自由 🏵️",
+            "🌌 愿你星光灿烂，前途无忧 🌌",
+            "🍁 愿你岁月静好，现世安稳 🍁",
+            "🎆 愿你一生努力，一生被爱 🎆",
+            "🌱 愿你前程似锦，美梦成真 🌱",
+            "🏮 愿你此生以自己喜欢的方式度过 🏮",
+            "🌳 愿你一生有爱，一生被爱 🌳",
+            "🎇 愿你所有的期待都能出现 🎇",
+            "🌾 愿你一生清澈明朗，做你愿做的事 🌾",
+            "🎗️ 愿你所有快乐，无需假装 🎗️",
+            "🌃 愿你一生幸福，一生被爱 🌃",
+            "🦋 愿你自强到无需有人宠有人惯 🦋",
+            "🎼 愿你一生平安喜乐，无疾无忧 🎼",
+            "🌻 愿你所有幸运，都不期而遇 🌻",
+            "🏵️ 愿你所有美好，都如约而至 🏵️",
+            "🌠 愿你此生无忧亦无惧 🌠",
+            "🎑 愿你生活里有热汤和甜食 🎑",
+            "🌹 愿你此生尽兴，赤诚善良 🌹",
+            "🌈 愿你所有快乐，无需假装 🌈",
+            "✨ 愿你一生努力，一生被爱 ✨"
+        ];
+        
+        const colors = [
+            "#ff6b6b", "#6bff6b", "#6b6bff", 
+            "#ffff6b", "#ff6bff", "#6bffff",
+            "#ffb347", "#47b347", "#4747b3",
+            "#ffcc99", "#99ffcc", "#cc99ff",
+            "#ff9999", "#99ff99", "#9999ff",
+            "#ff66b2", "#b266ff", "#66ffb2"
+        ];
+        
+        // 粒子系统
+        class ParticleSystem {
+            constructor() {
+                this.particles = [];
+            }
+            
+            createParticles(x, y, color, count = 15) {
+                for (let i = 0; i < count; i++) {
+                    const size = 1 + Math.random() * 4;
+                    const p = document.createElement('div');
+                    p.className = 'particle';
+                    p.style.width = p.style.height = size + 'px';
+                    p.style.left = x + 'px';
+                    p.style.top = y + 'px';
+                    p.style.backgroundColor = color;
+                    document.body.appendChild(p);
+                    
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = 0.5 + Math.random() * 3;
+                    const life = 800 + Math.random() * 1200;
+                    
+                    this.particles.push({
+                        element: p,
+                        x: x,
+                        y: y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        life: life,
+                        born: Date.now(),
+                        size: size
+                    });
+                }
+            }
+            
+            update() {
+                const now = Date.now();
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    const elapsed = now - p.born;
+                    const progress = elapsed / p.life;
+                    
+                    if (progress >= 1) {
+                        p.element.remove();
+                        this.particles.splice(i, 1);
+                        continue;
+                    }
+                    
+                    // 更新位置
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vx *= 0.98;
+                    p.vy *= 0.98;
+                    p.element.style.left = p.x + 'px';
+                    p.element.style.top = p.y + 'px';
+                    
+                    // 动态效果
+                    p.element.style.opacity = 0.8 * (1 - progress);
+                    p.element.style.transform = `scale(${1 + progress * 0.5}) translateZ(0)`;
+                }
+            }
+        }
+        
+        const particleSystem = new ParticleSystem();
+        let messageQueue = [...messages];
+        let activeMessages = 0;
+        const totalMessages = messages.length;
+        let messagesDisplayed = 0;
+        
+        // 智能轨迹生成器
+        function generateSmartTrajectory() {
+            const zones = [
+                {x: 0.2, y: 0.2}, {x: 0.5, y: 0.2}, {x: 0.8, y: 0.2},
+                {x: 0.2, y: 0.5}, {x: 0.8, y: 0.5},
+                {x: 0.2, y: 0.8}, {x: 0.5, y: 0.8}, {x: 0.8, y: 0.8}
+            ];
+            
+            const startZone = zones[Math.floor(Math.random() * zones.length)];
+            let startX, startY;
+            
+            if (startZone.x === 0.5) {
+                startX = window.innerWidth * (startZone.x + (Math.random() - 0.5) * 0.3);
+            } else {
+                startX = window.innerWidth * (startZone.x + (Math.random() - 0.5) * 0.2);
+            }
+            
+            if (startZone.y === 0.5) {
+                startY = window.innerHeight * (startZone.y + (Math.random() - 0.5) * 0.3);
+            } else {
+                startY = window.innerHeight * (startZone.y + (Math.random() - 0.5) * 0.2);
+            }
+            
+            const endX = window.innerWidth * (0.5 + (Math.random() - 0.5) * 0.3);
+            const endY = window.innerHeight * (0.5 + (Math.random() - 0.5) * 0.3);
+            const startZ = -800 - Math.random() * 1200;
+            const endZ = 0;
+            
+            return { startX, startY, startZ, endX, endY, endZ };
+        }
+        
+        function createMessage() {
+            if (messageQueue.length === 0) {
+                checkAllMessagesDone();
+                return;
+            }
+            
+            const messageText = messageQueue.shift();
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message';
+            messageElement.textContent = messageText;
+            
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            messageElement.style.color = color;
+            messageElement.style.boxShadow = `0 0 20px ${color}`;
+            messageElement.style.textShadow = `0 0 10px ${color}`;
+            
+            const { startX, startY, startZ, endX, endY, endZ } = generateSmartTrajectory();
+            
+            messageElement.style.left = startX + 'px';
+            messageElement.style.top = startY + 'px';
+            messageElement.style.transform = `translate3d(0, 0, ${startZ}px)`;
+            
+            document.body.appendChild(messageElement);
+            activeMessages++;
+            messagesDisplayed++;
+            
+            setTimeout(() => {
+                messageElement.style.opacity = '1';
+                messageElement.style.transform = 
+                    `translate3d(${endX - startX}px, ${endY - startY}px, ${endZ - startZ}px)`;
+                
+                const particleDelay = 2000 + Math.random() * 1000;
+                setTimeout(() => {
+                    particleSystem.createParticles(endX, endY, color, 10 + Math.floor(Math.random() * 10));
+                }, particleDelay);
+            }, 10);
+            
+            setTimeout(() => {
+                messageElement.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(messageElement);
+                    activeMessages--;
+                    checkAllMessagesDone();
+                }, 500);
+            }, 3500 + Math.random() * 1500);
+        }
+        
+        function checkAllMessagesDone() {
+            if (messagesDisplayed >= totalMessages && activeMessages === 0) {
+                showVideo();
+            }
+        }
+        
+        function showVideo() {
+            const videoContainer = document.getElementById('video-container');
+            const video = document.getElementById('video-loop');
+            
+            document.querySelector('.center-glow').style.display = 'none';
+            videoContainer.style.display = 'block';
+            video.play().catch(e => console.log("视频自动播放被阻止:", e));
+        }
+        
+        function startMessages() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createMessage, i * 500);
+            }
+            
+            let lastCreateTime = 0;
+            function createMessagesLoop() {
+                const now = Date.now();
+                if (now - lastCreateTime > 300 + Math.random() * 400 && messageQueue.length > 0) {
+                    createMessage();
+                    lastCreateTime = now;
+                }
+                requestAnimationFrame(createMessagesLoop);
+            }
+            createMessagesLoop();
+        }
+        
+        // 更新粒子系统
+        function updateParticles() {
+            particleSystem.update();
+            requestAnimationFrame(updateParticles);
+        }
+        updateParticles();
+        
+        // 窗口大小变化处理
+        window.addEventListener('resize', () => {
+            const messages = document.querySelectorAll('.message');
+            messages.forEach(msg => {
+                const ratioX = parseFloat(msg.style.left) / window.innerWidth;
+                const ratioY = parseFloat(msg.style.top) / window.innerHeight;
+                msg.style.left = `${ratioX * window.innerWidth}px`;
+                msg.style.top = `${ratioY * window.innerHeight}px`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暖心陪伴 | 每一句温暖都值得被珍藏</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="../css/sty.css">
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar animate__animated animate__fadeInDown">
+    <div class="nav-content">
+      <a href="index.html" class="nav-item">🏠 首页</a>
+      <a href="comfort.html" class="nav-item active">💌 暖心陪伴</a>
+      <a href="stories.html" class="nav-item">🔬 成长实验室</a>
+      <a href="resources.html" class="nav-item">🔗 实用资源</a>
+    </div>
+  </nav>
+
+  <!-- 主要内容 -->
+  <section class="container comfort-page animate__animated animate__fadeIn">
+    <div class="content">
+      <h1 class="title">暖心话语收藏馆</h1>
+      <h2 class="subtitle">当你需要时，这些温暖都在</h2>
+      
+      <div class="mood-selector">
+        <div class="mood-options">
+          <button class="mood-option active" data-mood="all">全部</button>
+          <button class="mood-option" data-mood="sad">感到沮丧时</button>
+          <button class="mood-option" data-mood="lost">迷茫困惑时</button>
+          <button class="mood-option" data-mood="tired">精疲力尽时</button>
+          <button class="mood-option" data-mood="hope">需要希望时</button>
+        </div>
+      </div>
+      
+      <div class="cards-container">
+        <div class="message-card animate__animated animate__fadeInUp animate__delay-1s" data-mood="sad">
+          <div class="message-icon">🌧️</div>
+          <div class="message-content">
+            <h3>允许自己暂时停下</h3>
+            <p>亲爱的，如果你今天什么都不想做，那就什么都不做吧。就像大地需要冬天休耕，人生也需要停顿期。这不是懒惰，而是积蓄力量的必要过程。</p>
+            <div class="quote">"悲伤像一场雨，淋湿了今天的你，但也滋养了明天的生长。" —— 村上春树</div>
+            <div class="action-buttons">
+              <button class="save-button" onclick="saveMessage(this)">💾 收藏这句话</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="message-card animate__animated animate__fadeInUp animate__delay-2s" data-mood="lost">
+          <div class="message-icon">🧭</div>
+          <div class="message-content">
+            <h3>给正在寻找方向的你</h3>
+            <p>人生不是单选题，没有"唯一正确"的答案。那些看似绕远的路，往往藏着意想不到的风景。试着把注意力从"我失去了什么"转向"我可能发现什么"。</p>
+            <div class="quote">"不是所有的流浪者都迷失了方向，有些人只是在寻找新的可能。" —— 托尔金</div>
+            <div class="action-buttons">
+              <button class="save-button" onclick="saveMessage(this)">💾 收藏这句话</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="message-card animate__animated animate__fadeInUp animate__delay-3s" data-mood="tired">
+          <div class="message-icon">🛌</div>
+          <div class="message-content">
+            <h3>给精疲力尽的你</h3>
+            <p>你已经做得很好了。那个熬夜复习的你，那个咬牙坚持的你，都值得一个大大的拥抱。今天不妨早点休息，明天太阳会照常升起。</p>
+            <div class="quote">"休息不是奖励，而是继续前进的必要条件。"</div>
+            <div class="practical-tip">
+              <strong>小建议：</strong> 试试"20-20-20法则"——每20分钟工作，抬头看20英尺(约6米)外的东西20秒
+            </div>
+            <div class="action-buttons">
+              <button class="save-button" onclick="saveMessage(this)">💾 收藏这句话</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="message-card animate__animated animate__fadeInUp animate__delay-4s" data-mood="hope">
+          <div class="message-icon">🌄</div>
+          <div class="message-content">
+            <h3>给怀疑自己的你</h3>
+            <p>你知道吗？竹子在前四年只能看到几厘米的生长，但第五年会突然长到25米高。前四年它在地下默默发展根系。你的努力就像竹子的根，看似没有进展，其实在为未来的爆发积蓄力量。</p>
+            <div class="quote">"黑夜无论怎样悠长，白昼总会到来。" —— 莎士比亚</div>
+            <div class="action-buttons">
+              <button class="save-button" onclick="saveMessage(this)">💾 收藏这句话</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="message-card animate__animated animate__fadeInUp animate__delay-5s" data-mood="lost">
+          <div class="message-content">
+            <h3>特别的话，给考试失利的你</h3>
+            <p>有人18岁考上名校，有人30岁才读大学；有人25岁当CEO却在35岁失业，有人50岁才迎来事业巅峰。世上每个人都有自己的时区，你只是还没走到属于你的"高光时刻"。</p>
+            <div class="quote">"早成者未必有成，晚达者未必不达。不可以年少而自恃，不可以年老而自弃。" —— 《警世通言》</div>
+            <div class="practical-tip">
+              <strong>下一步行动：</strong> 列出你除了考试外的3个优势，并思考如何发挥它们
+            </div>
+            <div class="action-buttons">
+              <button class="save-button" onclick="saveMessage(this)">💾 收藏这句话</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="comfort-actions">
+        <button class="button button-happy" onclick="randomMessage()">🎲 随机一句温暖的话</button>
+        <button class="button button-unhappy" onclick="needHug()">🤗 我需要一个虚拟拥抱</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 烟花容器 -->
+  <div id="fireworks-container"></div>
+  
+  <!-- 虚拟拥抱弹窗 -->
+  <div id="hug-container" style="display:none;">
+    <div class="hug-message">
+      <h3>🤗 虚拟拥抱已送达</h3>
+      <p>你并不孤单，我们都在一起成长</p>
+      <button onclick="closeHug()">关闭</button>
+    </div>
+  </div>
+  
+  <!-- 随机温暖话语弹窗 -->
+  <div id="random-message-container" style="display:none;">
+    <div class="random-message-box">
+      <div class="message-icon">💖</div>
+      <h3>送给此刻的你</h3>
+      <p id="random-message-text"></p>
+      <button class="close-button" onclick="closeRandomMessage()">关闭</button>
+      <button class="another-button" onclick="showAnotherMessage()">再看一句</button>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script>
+    // 温暖话语库
+    const warmMessages = [
+      "乌云终将消散，光明终会重现。",
+      "你比自己想象的更强大，只是暂时忘记了而已。",
+      "人生没有白走的路，每一步都算数。",
+      "允许自己脆弱，就像允许春天有雨天。",
+      "你走得慢没关系，只要方向正确。",
+      "每一次跌倒都是为了更稳地站立。",
+      "你的价值不取决于一次考试或一份工作。",
+      "休息不是懒惰，而是为了走更远的路。",
+      "世界上有千万种成功，你只需要找到适合自己的那种。",
+      "今天的泪水会浇灌出明天的笑容。",
+      "你不是失败，只是在尝试不同的可能性。",
+      "最黑暗的时刻往往最接近黎明。",
+      "你的故事还没有结束，精彩章节即将开始。",
+      "人生如四季，冬天过后必定是春天。",
+      "你值得被爱，值得拥有美好的一切。"
+    ];
+
+    // 显示随机温暖话语
+    function showRandomMessage() {
+      const randomIndex = Math.floor(Math.random() * warmMessages.length);
+      const message = warmMessages[randomIndex];
+      
+      document.getElementById('random-message-text').textContent = message;
+      document.getElementById('random-message-container').style.display = 'flex';
+      
+      // 创建一些飘落的爱心
+      createHearts();
+    }
+
+    // 显示另一条随机话语
+    function showAnotherMessage() {
+      showRandomMessage(); // 直接复用现有函数
+    }
+
+    // 关闭随机话语弹窗
+    function closeRandomMessage() {
+      document.getElementById('random-message-container').style.display = 'none';
+    }
+
+    // 修改现有的randomMessage函数
+    function randomMessage() {
+      showRandomMessage(); // 现在使用新的弹出式功能
+    }
+
+    function filterMessages(mood) {
+      const options = document.querySelectorAll('.mood-option');
+      options.forEach(opt => opt.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      
+      const cards = document.querySelectorAll('.message-card');
+      cards.forEach(card => {
+        if(mood === 'all' || card.dataset.mood === mood) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    
+    function saveMessage(btn) {
+      const card = btn.closest('.message-card');
+      const message = card.querySelector('h3').textContent + ": " + 
+                     card.querySelector('p').textContent;
+      alert(`已保存到收藏夹:\n\n"${message}"`);
+      btn.textContent = '✓ 已收藏';
+      btn.disabled = true;
+    }
+    
+    function needHug() {
+      document.getElementById('hug-container').style.display = 'block';
+      createHearts(); // 触发爱心效果
+    }
+    
+    function closeHug() {
+      document.getElementById('hug-container').style.display = 'none';
+    }
+    
+    // 初始化情绪选择器
+    document.querySelectorAll('.mood-option').forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterMessages(this.dataset.mood);
+      });
+    });
+  </script>
+</body>
+</html>

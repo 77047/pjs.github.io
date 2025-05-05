@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心灵树洞 | 倾诉与疗愈</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/shu.css">
+</head>
+<body>
+  <!-- 背景装饰元素 -->
+  <div class="decoration decoration-1">
+    <i class="fas fa-heart"></i>
+  </div>
+  <div class="decoration decoration-2">
+    <i class="fas fa-comment-dots"></i>
+  </div>
+  
+  <!-- 树洞精灵 -->
+  <div class="treehole-spirit" id="treeholeSpirit">
+    <i class="fas fa-fairy"></i>
+  </div>
+  <div class="spirit-message" id="spiritMessage">
+    嗨，我是树洞精灵~<br>有什么心事都可以告诉我哦！
+  </div>
+  
+  <!-- 鼓励泡泡 -->
+  <div class="encouragement-bubble" id="encouragementBubble">
+    <i class="fas fa-magic"></i>
+  </div>
+  <div class="encouragement-message" id="encouragementMessage">
+    你比自己想象的更勇敢！❤️
+  </div>
+  
+  <!-- 树洞精灵对话框 -->
+  <div class="spirit-dialog" id="spiritDialog">
+    <button class="spirit-dialog-close" id="spiritDialogClose">&times;</button>
+    <div id="spiritDialogContent">今天过得怎么样？有什么想和我分享的吗？</div>
+  </div>
+  
+  <!-- 感谢卡片 -->
+  <div class="thank-you-card" id="thankYouCard">
+    <h3>感谢你的信任</h3>
+    <p>你的心声已安全送达我的树洞。我会认真倾听并尽快给你回应。</p>
+    <p>记得对自己温柔一点，你值得被好好对待。</p>
+    <button class="close-btn" id="closeThankYou">关闭</button>
+  </div>
+  
+  <div class="treehole-container">
+    <div class="header">
+      <h1>心灵树洞</h1>
+      <p class="subtitle">一个安全的空间，分享你的故事、困惑和心声<span class="typing-effect"></span></p>
+    </div>
+    
+    <div class="card">
+      <h2>我想倾诉...</h2>
+      <p>无论是快乐、烦恼还是困惑，这里都是你可以自由表达的地方。我会认真倾听每一份心声。</p>
+      
+      <!-- 进度条 -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      
+      <form id="treeholeForm" class="treehole-form" action="https://formspree.io/f/pengjiahluoyyds@163.com" method="POST">
+        <input type="hidden" name="_subject" value="心灵树洞新消息">
+        <input type="hidden" name="mood" id="selectedMood" value="">
+        
+        <div class="form-group">
+          <label for="message-type" class="required">倾诉类型</label>
+          <select id="message-type" name="message-type" required>
+            <option value="">请选择...</option>
+            <option value="love">感情/人际关系</option>
+            <option value="family">家庭问题</option>
+            <option value="work">工作/学业压力</option>
+            <option value="growth">个人成长困惑</option>
+            <option value="depression">情绪低落/抑郁</option>
+            <option value="other">其他心事</option>
+          </select>
+        </div>
+        
+        <!-- 心情选择器 -->
+        <div class="form-group">
+          <label>你今天的心情是？</label>
+          <div class="mood-selector">
+            <div class="mood-option" data-mood="happy">
+              <i class="fas fa-laugh-beam"></i>
+              <span>开心</span>
+            </div>
+            <div class="mood-option" data-mood="sad">
+              <i class="fas fa-sad-tear"></i>
+              <span>难过</span>
+            </div>
+            <div class="mood-option" data-mood="angry">
+              <i class="fas fa-angry"></i>
+              <span>生气</span>
+            </div>
+            <div class="mood-option" data-mood="confused">
+              <i class="fas fa-meh"></i>
+              <span>困惑</span>
+            </div>
+            <div class="mood-option" data-mood="tired">
+              <i class="fas fa-tired"></i>
+              <span>疲惫</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="your-message" class="required">你的心声</label>
+          <textarea id="your-message" name="your-message" required placeholder="请详细写下你想倾诉的内容..."></textarea>
+        </div>
+        
+        <!-- 情感分析 -->
+        <div class="sentiment-analysis" id="sentimentAnalysis">
+          <h4>情感分析</h4>
+          <p>我感觉到你的文字中带着 <span id="sentimentResult">温暖</span> 的情绪。</p>
+          <p><small>这只是简单的分析，我会更用心地理解你的真实感受。</small></p>
+        </div>
+        
+        <div class="form-group">
+          <label for="nickname">你的昵称 (可选)</label>
+          <input type="text" id="nickname" name="nickname" placeholder="如何称呼你">
+        </div>
+        
+        <div class="form-group">
+          <label for="contact-info">联系方式 (可选)</label>
+          <input type="text" id="contact-info" name="contact-info" placeholder="微信/QQ/邮箱/电话等">
+          <small style="color: #7f8c8d; display: block; margin-top: 5px;">如果你想收到回复，请提供联系方式</small>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> 发送我的倾诉
+        </button>
+      </form>
+    </div>
+    
+    <!-- 深呼吸疗法 -->
+    <div class="card breath-therapy">
+      <h2>深呼吸疗法</h2>
+      <p>当你感到焦虑或压力时，试试这个简单的呼吸练习，可以帮助你平静下来。</p>
+      
+      <div class="breath-container">
+        <div class="breath-circle" id="breathCircle">吸气</div>
+      </div>
+      
+      <div class="breath-instruction" id="breathInstruction">
+        准备开始深呼吸练习，点击下方按钮
+      </div>
+      
+      <button class="breath-btn" id="breathBtn">开始深呼吸</button>
+    </div>
+    
+    <!-- 每日小确幸 -->
+    <div class="card daily-bliss">
+      <h2>每日小确幸</h2>
+      <p>记录每天的小快乐，培养感恩的心态。</p>
+      
+      <ul class="bliss-list" id="blissList">
+        <li class="bliss-item"><i class="fas fa-smile"></i> 今天的阳光很温暖</li>
+        <li class="bliss-item"><i class="fas fa-coffee"></i> 喝到了一杯好喝的咖啡</li>
+      </ul>
+      
+      <div class="add-bliss">
+        <input type="text" id="blissInput" placeholder="今天有什么小确幸？">
+        <button class="add-bliss-btn" id="addBlissBtn"><i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+    
+    <!-- 心情日记 -->
+    <div class="card mood-diary">
+      <h2>心情日记</h2>
+      <p>记录你每天的情绪变化，更好地了解自己。</p>
+      
+      <div class="diary-grid" id="diaryGrid">
+        <!-- 由JS动态生成 -->
+      </div>
+    </div>
+    
+    <!-- 冥想音乐 -->
+    <div class="card meditation-music">
+      <h2>冥想音乐</h2>
+      <p>选择一段舒缓的音乐，帮助你放松身心。</p>
+      
+      <div class="music-player">
+        <select id="musicSelect" class="form-group">
+          <option value="1">自然之声 - 流水鸟鸣</option>
+          <option value="2">冥想音乐 - 平静心灵</option>
+          <option value="3">白噪音 - 雨声</option>
+          <option value="4">阿尔法波 - 深度放松</option>
+        </select>
+        
+        <div class="music-controls">
+          <button class="music-btn" id="playBtn"><i class="fas fa-play"></i></button>
+          <div class="music-progress">
+            <div class="music-progress-bar" id="musicProgress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 心灵鸡汤 -->
+    <div class="card inspiration-quote">
+      <h2>心灵鸡汤</h2>
+      <p>有时候，我们都需要一点正能量。</p>
+      
+      <div class="quote-text" id="quoteText">
+        生活不会辜负每一个努力的人。
+      </div>
+      
+      <button class="new-quote-btn" id="newQuoteBtn">换一句</button>
+    </div>
+    
+    <div class="contact-section">
+      <div class="contact-card">
+        <h3><i class="fas fa-comments"></i> 直接联系我</h3>
+        
+        <div class="contact-method">
+          <i class="fab fa-weixin"></i>
+          <div>
+            <strong>微信</strong>
+            <p>pengjiahluo (添加时请备注"心灵树洞")</p>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>邮箱</strong>
+            <p>pengjiahluoyyds@163.com</p>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <i class="fab fa-qq"></i>
+          <div>
+            <strong>QQ</strong>
+            <p>2712635810</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-card">
+        <h3><i class="fas fa-clock"></i> 回应时间</h3>
+        <p>我会尽量在收到倾诉后48小时内回复。</p>
+        
+        <div style="margin-top: 20px;">
+          <h4>最佳联系时间</h4>
+          <p>工作日: 0:00-24：00</p>
+          <p>周末: 10:00-22:00</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 秘密花园 -->
+    <div class="card secret-garden">
+      <h2>秘密花园</h2>
+      <p>这里是收集大家快乐记忆的地方，分享和发现生活中的美好。</p>
+      
+      <button class="secret-garden-btn" id="secretGardenBtn">
+        <i class="fas fa-seedling"></i> 点击进入秘密花园
+      </button>
+      <div class="garden-content" id="gardenContent">
+        <p>点击花朵看看别人的快乐时刻~</p>
+        <div class="flower">
+          <i class="fas fa-spa"></i>
+          <div class="flower-message">今天吃到了超好吃的冰淇淋！</div>
+        </div>
+        <div class="flower">
+          <i class="fas fa-spa"></i>
+          <div class="flower-message">和好朋友聊到凌晨三点</div>
+        </div>
+        <div class="flower">
+          <i class="fas fa-spa"></i>
+          <div class="flower-message">终于完成了拖延很久的项目</div>
+        </div>
+        <div class="flower">
+          <i class="fas fa-spa"></i>
+          <div class="flower-message">看到了一只超可爱的流浪猫</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="notice">
+      <h3>关于我的回应方式</h3>
+      <ul>
+        <li>我可能会用不同于常规的角度思考问题，回应可能不是你想听的"标准答案"</li>
+        <li>对一些问题，我的理解可能比较与众不同</li>
+        <li>我习惯用文字表达，可能会比较详细或冗长</li>
+        <li>所有倾诉内容都会被严格保密</li>
+        <li>紧急情况请直接电话联系或寻求专业帮助</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../js/s.js"></script>
+</body>
+</html>
